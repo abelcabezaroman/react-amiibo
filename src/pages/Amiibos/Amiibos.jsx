@@ -1,28 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { AmiiboGallery } from "./shared/components/AmiiboCallery/AmiiboGallery";
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import { environment } from "../../environments/environment";
+import { AmiiboGallery } from "../../shared/components/AmiiboCallery/AmiiboGallery";
 
-function App () {
+export function Amiibos () {
+
+    const [amiibos, setAmiibos] = useState([]);
+
+    useEffect(() => {
+        axios.get(environment.url + 'amiibo').then(res => {
+            console.log('##ABEL## >> Amiibos >>  res', res);
+            setAmiibos(res.data.amiibo.splice(0,9));
+        })
+    }, [])
+
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <AmiiboGallery/>
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+        <div>
+            <AmiiboGallery amiibos={amiibos}/>
         </div>
     );
 }
 
-export default App;

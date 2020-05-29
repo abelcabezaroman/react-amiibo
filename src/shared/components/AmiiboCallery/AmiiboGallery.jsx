@@ -1,26 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export function AmiiboGallery (props) {
+    return (
+        <div>
+            {props.amiibos.map((item, index) =>
+                <figure key={index}>
+                    <img src={item.image} alt=""/>
+                    <figcaption>{item.name}</figcaption>
+                </figure>
+            )}
+        </div>
+    );
 }
 
-export default App;
