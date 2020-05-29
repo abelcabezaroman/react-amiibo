@@ -1,0 +1,37 @@
+.c-amiibo-gallery {
+  &__item-container {
+
+    &:hover {
+      .c-amiibo-gallery__img {
+
+        //transform: rotate3d(1, 1, 0, 7rad);
+        transform: rotateY(360deg);
+
+      }
+    }
+
+
+  }
+
+  &__item {
+    height: 248px;
+    margin: 64px auto;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__img {
+    transition: transform .5s ease-in-out;
+
+    max-height: 100%;
+  }
+
+  &__caption {
+    color: #FFFFFF;
+    font-size: 24px;
+    margin-top: 16px;
+    font-family: "Arial";
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

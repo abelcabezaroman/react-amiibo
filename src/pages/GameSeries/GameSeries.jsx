@@ -2,22 +2,23 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { environment } from "../../environments/environment";
 import { AmiiboGallery } from "../../shared/components/AmiiboCallery/AmiiboGallery";
+import { TextList } from "../../shared/components/TextList/TextList";
 
-export function Amiibos () {
+export function GameSeries () {
 
-    const [amiibos, setAmiibos] = useState([]);
+    const [gameSeries, setGameSeries] = useState([]);
 
     useEffect(() => {
-        axios.get(environment.url + 'amiibo').then(res => {
+        axios.get(environment.url + 'gameseries').then(res => {
             console.log('##ABEL## >> Amiibos >>  resacon en las vegas', res);
-            setAmiibos(res.data.amiibo.splice(0,9));
+            setGameSeries(res.data.amiibo);
         })
     }, [])
 
     return (
         <div>
-            <h1 className="b-text-primary d-flex justify-content-center">Amiibos</h1>
-            <AmiiboGallery amiibos={amiibos}/>
+            <h1 className="b-text-primary d-flex justify-content-center">Game Series</h1>
+            <TextList texts={gameSeries}/>
         </div>
     );
 }
