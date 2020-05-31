@@ -1,0 +1,3 @@
+@function pg($number, $pg: 8){
+    @return $number * $pg;
+}

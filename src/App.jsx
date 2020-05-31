@@ -3,11 +3,13 @@ import './App.scss';
 import { Amiibos } from "./pages/Amiibos/Amiibos";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { GameSeries } from "./pages/GameSeries/GameSeries";
+import { Menu } from './shared/components/Menu/Menu';
 
 function App () {
     return (
         <Router>
             <div className="container-fluid">
+                <Menu/>
                 {/*<nav>*/}
                 {/*    <ul>*/}
                 {/*        <li>*/}
