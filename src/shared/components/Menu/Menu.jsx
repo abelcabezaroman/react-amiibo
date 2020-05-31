@@ -1,12 +1,20 @@
 import React from 'react';
 import './Menu.scss'
 import { Link } from 'react-router-dom';
+import styled from "styled-components";
 
-export function Menu (props) {
+export function Menu () {
+
+    const LinkTo = styled.span`
+  background-color: ${({ theme }) => theme.backgroundOpacity};
+  }`;
+
     return (
         <nav className="c-menu">
-            <Link className="c-menu__link" to="/amiibos">Amiibo</Link>
-            <Link className="c-menu__link" to="/gameseries">Game Series</Link>
+            <LinkTo className="c-menu__link"><Link to="/">Home</Link></LinkTo>
+            <LinkTo className="c-menu__link"><Link to="/amiibos">Amiibo</Link></LinkTo>
+            <LinkTo className="c-menu__link"><Link to="/gameseries">Game Series</Link></LinkTo>
+            <LinkTo className="c-menu__link"><Link to="/contact">Contact</Link></LinkTo>
         </nav>
     );
 }
