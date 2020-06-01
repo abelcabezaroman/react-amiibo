@@ -8,15 +8,15 @@ export function Amiibos () {
 
     // const [amiibos, setAmiibos] = useState([]);
 
-    const { amiibos, setAmiibos } = useContext(AmiibosContext);
+    const [amiibos, setAmiibos] = useContext(AmiibosContext);
 
 
     useEffect(() => {
         axios.get(environment.url + 'amiibo').then(res => {
-            console.log('##ABEL## >> Amiibos >>  resacon en las vegas', res);
-            setAmiibos(res.data.amiibo.splice(0,9));
+            setAmiibos(res.data.amiibo);
         })
     }, [])
+
 
     return (
         <div>

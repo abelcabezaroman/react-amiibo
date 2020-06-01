@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { environment } from "../../environments/environment";
-import { AmiiboGallery } from "../../shared/components/AmiiboCallery/AmiiboGallery";
 import { TextList } from "../../shared/components/TextList/TextList";
 
 export function GameSeries () {
@@ -10,8 +9,8 @@ export function GameSeries () {
 
     useEffect(() => {
         axios.get(environment.url + 'gameseries').then(res => {
-            console.log('##ABEL## >> Amiibos >>  resacon en las vegas', res);
-            setGameSeries(res.data.amiibo);
+            const filteredAmiibos = uniqueArray(res.data.amiibo, 'name');
+            setGameSeries(filteredAmiibos);
         })
     }, [])
 
@@ -23,3 +22,10 @@ export function GameSeries () {
     );
 }
 
+const uniqueArray = (array, key) => {
+    return array.filter((item, index, self) =>
+        index === self.findIndex((t) => (
+            t[key] === item[key]
+        ))
+    )
+};
