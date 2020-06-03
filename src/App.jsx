@@ -14,6 +14,7 @@ import { darkTheme, lightTheme } from "./shared/styles/themes";
 import ToggleTheme from "./shared/components/ToogleTheme/ToogleTheme";
 import { useDarkMode } from "./shared/hooks/useDarkMode";
 import { AmiiboDetail } from "./pages/Amiibos/AmiiboDetail/AmiiboDetail";
+import { ButtonStyles } from "./shared/styles/Button.styles";
 
 function App () {
     const [amiibos, setAmiibos] = useState([]);
@@ -25,6 +26,7 @@ function App () {
 
     const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
+
     return (
         <Router>
             <LanguageContext.Provider value={language}>
@@ -35,6 +37,7 @@ function App () {
                     <div className="container-fluid justify-content-center my-4 u-font-size-16">
                         <Menu/>
 
+                        {/*<ButtonStyles>azdsassd</ButtonStyles>*/}
                         <AmiibosContext.Provider value={[amiibos, setAmiibos]}>
                             <Switch>
                                 <Route path="/amiibos/:tail">

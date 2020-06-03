@@ -6,9 +6,17 @@ import { Link } from "react-router-dom";
 
 export function AmiiboGallery (props) {
 
-    const Figcaption = styled.figcaption`
-  background-color: ${({ theme }) => theme.backgroundOpacity};
-  }`;
+    // const applyBlack = false;
+    //
+    // const Figcaption = styled.figcaption`
+    //     background-color: ${country === 'Spain' ? '#000000' : 'red'};
+    //     color: red;
+    //     font-size: 4rem;
+    // }`;
+
+    const FigcaptionLocalStyles = styled.figcaption`
+        background-color: ${({ theme }) => theme.backgroundOpacity};
+    }`;
 
     return (
         <div className="c-amiibo-gallery">
@@ -18,13 +26,15 @@ export function AmiiboGallery (props) {
                         <Link to={'amiibos/' + item.tail} className="c-amiibo-gallery__item-container">
                             <figure className="c-amiibo-gallery__item">
                                 <img src={item.image} alt="" className="c-amiibo-gallery__img"/>
-                                <Figcaption className="c-amiibo-gallery__caption">{item.name}</Figcaption>
+                                <FigcaptionLocalStyles className="c-amiibo-gallery__caption">{item.name}</FigcaptionLocalStyles>
                             </figure>
                         </Link>
                     </div>
                 )}
             </div>
         </div>
+
+
     );
 }
 

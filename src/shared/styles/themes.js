@@ -1,8 +1,8 @@
 export const lightTheme = {
-    body: '#FFF',
-    text: '#363537',
+    body: '#E60012',
+    text: '#FFFFFF',
     toggleBorder: '#FFF',
-    background: '#363537',
+    background: '#E60012',
     backgroundOpacity: 'rgba(103,103,103,0.1)',
 
 }
