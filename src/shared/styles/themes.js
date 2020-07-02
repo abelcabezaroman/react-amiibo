@@ -4,8 +4,8 @@ export const lightTheme = {
     toggleBorder: '#FFF',
     background: '#E60012',
     backgroundOpacity: 'rgba(103,103,103,0.1)',
-
 }
+
 export const darkTheme = {
     body: '#282c34',
     text: '#FAFAFA',

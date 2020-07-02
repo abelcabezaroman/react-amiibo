@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from "axios";
 import { environment } from "../../environments/environment";
-import { AmiiboGallery } from "../../shared/components/AmiiboCallery/AmiiboGallery";
+import { AmiiboGallery } from "../../shared/components/AmiiboGallery/AmiiboGallery";
 import { AmiibosContext } from "../../shared/contexts/AmiibosContext";
 import { AmiiboSearch } from "../../shared/components/AmiiboSearch/AmiiboSearch";
 
