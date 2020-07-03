@@ -1,0 +1,13 @@
+.b-select {
+  width: 100%;
+  min-width: 18rem;
+  background-color: transparent;
+  border: 2px solid $color-white;
+  padding: 1rem;
+  color: $color-white;
+
+  .b-select__option {
+    color: #282c34;
+
+  }
+}

@@ -32,10 +32,10 @@ export function Contact () {
 
                 <label htmlFor="favoriteAmiibo">
                     <span className="b-text-label">Favorite amiibo</span>
-                    <select className="b-input" name="favoriteAmiibo" id="favoriteAmiibo"
+                    <select className="b-select" name="favoriteAmiibo" id="favoriteAmiibo"
                             ref={register({ required: true })}>
                         {amiibos.map(amiibo =>
-                            <option value={amiibo.name}>{amiibo.name}</option>
+                            <option className="b-select__option" value={amiibo.name}>{amiibo.name}</option>
                         )}
                     </select>
                     {errors.favoriteAmiibo && <span>This field is required</span>}

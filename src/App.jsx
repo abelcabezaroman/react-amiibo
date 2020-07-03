@@ -14,7 +14,6 @@ import { darkTheme, lightTheme } from "./shared/styles/themes";
 import ToggleTheme from "./shared/components/ToogleTheme/ToogleTheme";
 import { useDarkMode } from "./shared/hooks/useDarkMode";
 import { AmiiboDetail } from "./pages/Amiibos/AmiiboDetail/AmiiboDetail";
-import { ButtonStyles } from "./shared/styles/Button.styles";
 
 function App () {
     const [amiibos, setAmiibos] = useState([]);
@@ -61,6 +60,7 @@ function App () {
                 </ThemeProvider>
             </LanguageContext.Provider>
         </Router>
+
     );
 }
 
