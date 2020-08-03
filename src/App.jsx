@@ -17,7 +17,7 @@ import { AmiiboDetail } from "./pages/Amiibos/AmiiboDetail/AmiiboDetail";
 
 function App () {
     const [amiibos, setAmiibos] = useState([]);
-    const [language, setLanguage] = useState('es');
+    // const [language, setLanguage] = useState('es');
 
     /* Theme
        ****************************************************************************/
@@ -28,11 +28,11 @@ function App () {
 
     return (
         <Router>
-            <LanguageContext.Provider value={language}>
+            <LanguageContext.Provider value={'es'}>
                 <ThemeProvider theme={themeMode}>
                     <GlobalStyles/>
                     <ToggleTheme theme={theme} toggleTheme={themeToggler}/>
-
+                    {/*<button onClick={themeToggler}}>Cambiar tema</button>*/}
                     <div className="container-fluid justify-content-center my-4 u-font-size-16">
                         <Menu/>
 

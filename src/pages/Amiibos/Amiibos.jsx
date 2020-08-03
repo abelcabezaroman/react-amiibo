@@ -4,6 +4,7 @@ import { environment } from "../../environments/environment";
 import { AmiiboGallery } from "../../shared/components/AmiiboGallery/AmiiboGallery";
 import { AmiibosContext } from "../../shared/contexts/AmiibosContext";
 import { AmiiboSearch } from "../../shared/components/AmiiboSearch/AmiiboSearch";
+import { ButtonStyles } from "../../shared/styles/Button.styles";
 
 export function Amiibos () {
 
@@ -14,11 +15,15 @@ export function Amiibos () {
 
 
     useEffect(() => {
-        axios.get(environment.url + 'amiibo').then(res => {
-            const amiibosLocal = res.data.amiibo;
-            setAmiibos(amiibosLocal);
-            setFilteredAmiibos(amiibosLocal)
-        })
+        if (!amiibos.length) {
+            axios.get(environment.url + 'amiibo').then(res => {
+                const amiibosLocal = res.data.amiibo;
+                setAmiibos(amiibosLocal);
+                setFilteredAmiibos(amiibosLocal)
+            })
+        } else{
+            setFilteredAmiibos(amiibos)
+        }
     }, [])
 
     const filterAmiibos = (filterValues) => {
@@ -45,6 +50,7 @@ export function Amiibos () {
     return (
         <div>
             <h1 className="b-text-primary d-flex justify-content-center">Amiibos</h1>
+            <ButtonStyles>HEYYY</ButtonStyles>
             <AmiiboSearch fnSubmit={filterAmiibos}/>
             <AmiiboGallery amiibos={filteredAmiibos}/>
         </div>

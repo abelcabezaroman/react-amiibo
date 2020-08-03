@@ -6,8 +6,8 @@ import styled from "styled-components";
 export function Menu () {
 
     const LinkTo = styled.span`
-  background-color: ${({ theme }) => theme.backgroundOpacity};
-  }`;
+      background-color: ${({ theme }) => theme.backgroundOpacity};
+      }`;
 
     return (
         <nav className="c-menu">

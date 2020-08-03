@@ -4,6 +4,7 @@ export const lightTheme = {
     toggleBorder: '#FFF',
     background: '#E60012',
     backgroundOpacity: 'rgba(103,103,103,0.1)',
+    fontSize: '4rem'
 }
 
 export const darkTheme = {
@@ -12,4 +13,5 @@ export const darkTheme = {
     toggleBorder: '#6B8096',
     background: '#282c34',
     backgroundOpacity: 'rgba(255,255,255,0.1)',
+    fontSize: '6rem'
 }

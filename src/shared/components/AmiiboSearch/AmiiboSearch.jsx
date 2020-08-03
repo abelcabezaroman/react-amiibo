@@ -45,11 +45,11 @@ export function AmiiboSearch (props) {
 
             <label htmlFor="type">
                 <span className="b-text-label">Type</span>
-                <select className="b-input" name="type" id="type"
+                <select className="b-select" name="type" id="type"
                         ref={register}>
-                    <option value=""></option>
-                    <option value="figure">Figure</option>
-                    <option value="card">Card</option>
+                    <option className="b-select__option" value=""></option>
+                    <option className="b-select__option" value="figure">Figure</option>
+                    <option className="b-select__option" value="card">Card</option>
 
                 </select>
             </label>

@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { AmiibosContext } from "../../shared/contexts/AmiibosContext";
 import { LanguageContext } from "../../shared/contexts/LanguageContext";
+import axios from "axios";
+import { environment } from "../../environments/environment";
 
 export function Contact () {
     const [amiibos, setAmiibos] = useContext(AmiibosContext);
@@ -10,6 +12,14 @@ export function Contact () {
     const { register, handleSubmit, watch, errors } = useForm();
 
     const onSubmit = data => console.log(data);
+
+    useEffect(() => {
+        if (!amiibos.length) {
+            axios.get(environment.url + 'amiibo').then(res => {
+                setAmiibos(res.data.amiibo);
+            })
+        }
+    }, [])
 
     return (
         <div className="d-flex justify-content-center">
