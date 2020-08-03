@@ -49,7 +49,6 @@ export function AmiiboGallery (props) {
     return (
         <div className="c-amiibo-gallery">
             <div className="row">
-                <ButtonComponent onClick={llevame}/>
                     {/*{items}*/}
                     {props.amiibos.map((item, index) =>
                         <div className="col-12 col-md-6 col-lg-4" key={index}>
