@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { environment } from "../../environments/environment";
 import { TextList } from "../../shared/components/TextList/TextList";
 
-export function GameSeries () {
+export function GameSeriesPage () {
 
     const [gameSeries, setGameSeries] = useState([]);
 
     useEffect(() => {
-        axios.get(environment.url + 'gameseries').then(res => {
+        axios.get(process.env.REACT_APP_BACK_URL + 'gameseries').then(res => {
             const filteredAmiibos = uniqueArray(res.data.amiibo, 'name');
             setGameSeries(filteredAmiibos);
         })

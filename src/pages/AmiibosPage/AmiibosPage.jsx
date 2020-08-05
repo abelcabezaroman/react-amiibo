@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from "axios";
-import { environment } from "../../environments/environment";
-import { AmiiboGallery } from "../../shared/components/AmiiboGallery/AmiiboGallery";
 import { AmiibosContext } from "../../shared/contexts/AmiibosContext";
-import { AmiiboSearch } from "../../shared/components/AmiiboSearch/AmiiboSearch";
+import { AmiiboSearch } from "./components/AmiiboSearch/AmiiboSearch";
 import { ButtonStyles } from "../../shared/styles/Button.styles";
+import { AmiiboGallery } from "./components/AmiiboGallery/AmiiboGallery";
 
-export function Amiibos () {
+export function AmiibosPage () {
 
     // const [amiibos, setAmiibos] = useState([]);
 
@@ -16,12 +15,13 @@ export function Amiibos () {
 
     useEffect(() => {
         if (!amiibos.length) {
-            axios.get(environment.url + 'amiibo').then(res => {
+            axios.get('https://www.amiiboapi.com/api/amiibo/').then(res => {
+                console.log('##ABEL## >> Amiibos >>  res', res.data);
                 const amiibosLocal = res.data.amiibo;
                 setAmiibos(amiibosLocal);
                 setFilteredAmiibos(amiibosLocal)
             })
-        } else{
+        } else {
             setFilteredAmiibos(amiibos)
         }
     }, [])

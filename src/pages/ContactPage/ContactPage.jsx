@@ -3,9 +3,8 @@ import { useForm } from "react-hook-form";
 import { AmiibosContext } from "../../shared/contexts/AmiibosContext";
 import { LanguageContext } from "../../shared/contexts/LanguageContext";
 import axios from "axios";
-import { environment } from "../../environments/environment";
 
-export function Contact () {
+export function ContactPage () {
     const [amiibos, setAmiibos] = useContext(AmiibosContext);
     const language = useContext(LanguageContext);
 
@@ -15,7 +14,7 @@ export function Contact () {
 
     useEffect(() => {
         if (!amiibos.length) {
-            axios.get(environment.url + 'amiibo').then(res => {
+            axios.get(process.env.REACT_APP_BACK_URL + 'amiibo').then(res => {
                 setAmiibos(res.data.amiibo);
             })
         }

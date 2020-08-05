@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { Amiibos } from "./pages/Amiibos/Amiibos";
+import { AmiibosPage } from "./pages/AmiibosPage/AmiibosPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { GameSeries } from "./pages/GameSeries/GameSeries";
 import { Menu } from './shared/components/Menu/Menu';
-import { Home } from "./pages/Home/Home";
-import { Contact } from "./pages/Contact/Contact";
 import { AmiibosContext } from "./shared/contexts/AmiibosContext";
 import { LanguageContext } from "./shared/contexts/LanguageContext";
 import { ThemeProvider } from "styled-components";
@@ -13,7 +10,10 @@ import { GlobalStyles } from "./shared/styles/globalStyles";
 import { darkTheme, lightTheme } from "./shared/styles/themes";
 import ToggleTheme from "./shared/components/ToogleTheme/ToogleTheme";
 import { useDarkMode } from "./shared/hooks/useDarkMode";
-import { AmiiboDetail } from "./pages/Amiibos/AmiiboDetail/AmiiboDetail";
+import { GameSeriesPage } from "./pages/GameSeriesPage/GameSeriesPage";
+import { ContactPage } from "./pages/ContactPage/ContactPage";
+import { HomePage } from "./pages/HomePage/HomePage";
+import { AmiiboDetailPage } from "./pages/AmiibosPage/pages/AmiiboDetailPage/AmiiboDetailPage";
 
 function App () {
     const [amiibos, setAmiibos] = useState([]);
@@ -40,19 +40,19 @@ function App () {
                         <AmiibosContext.Provider value={[amiibos, setAmiibos]}>
                             <Switch>
                                 <Route path="/amiibos/:tail">
-                                    <AmiiboDetail/>
+                                    <AmiiboDetailPage/>
                                 </Route>
                                 <Route path="/amiibos">
-                                    <Amiibos/>
+                                    <AmiibosPage/>
                                 </Route>
                                 <Route path="/gameseries">
-                                    <GameSeries/>
+                                    <GameSeriesPage/>
                                 </Route>
                                 <Route path="/contact">
-                                    <Contact/>
+                                    <ContactPage/>
                                 </Route>
                                 <Route path="/">
-                                    <Home/>
+                                    <HomePage/>
                                 </Route>
                             </Switch>
                         </AmiibosContext.Provider>

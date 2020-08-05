@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { environment } from "../../../environments/environment";
 import { useParams } from 'react-router-dom';
-import { AmiiboItem } from "../../../shared/components/AmiiboItem/AmiiboItem";
+import { AmiiboItem } from "../../../../shared/components/AmiiboItem/AmiiboItem";
 import moment from "moment";
 
-export function AmiiboDetail () {
+export function AmiiboDetailPage () {
 
     // const [amiibos, setAmiibos] = useState([]);
 
@@ -15,7 +14,7 @@ export function AmiiboDetail () {
 
 
     useEffect(() => {
-        axios.get(environment.url + 'amiibo?tail=' + tail).then(res => {
+        axios.get(process.env.REACT_APP_BACK_URL + 'amiibo?tail=' + tail).then(res => {
             const amiibo = res.data.amiibo[0];
             amiibo.release.jp = formatDate(amiibo);
             setAmiibo(amiibo);
