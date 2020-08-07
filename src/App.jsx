@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Menu } from './shared/components/Menu/Menu';
 import { AmiibosContext } from "./shared/contexts/AmiibosContext";
 import { LanguageContext } from "./shared/contexts/LanguageContext";
+import { FavoriteAmiiboContext } from "./shared/contexts/FavoriteAmiiboContext";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./shared/styles/globalStyles";
 import { darkTheme, lightTheme } from "./shared/styles/themes";
@@ -14,9 +15,21 @@ import { GameSeriesPage } from "./pages/GameSeriesPage/GameSeriesPage";
 import { ContactPage } from "./pages/ContactPage/ContactPage";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { AmiiboDetailPage } from "./pages/AmiibosPage/pages/AmiiboDetailPage/AmiiboDetailPage";
+import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
 
 function App () {
     const [amiibos, setAmiibos] = useState([]);
+    const [favoriteAmiibo, setFavoriteAmiibo] = useState({
+        "amiiboSeries": "Super Smash Bros.",
+        "character": "Mario",
+        "gameSeries": "Super Mario",
+        "head": "00000000",
+        "image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_00000000-00000002.png",
+        "name": "Mario",
+        "release": { "au": "2014-11-29", "eu": "2014-11-28", "jp": "2014-12-06", "na": "2014-11-21" },
+        "tail": "00000002",
+        "type": "Figure"
+    });
     // const [language, setLanguage] = useState('es');
 
     /* Theme
@@ -29,35 +42,41 @@ function App () {
     return (
         <Router>
             <LanguageContext.Provider value={'es'}>
-                <ThemeProvider theme={themeMode}>
-                    <GlobalStyles/>
-                    <ToggleTheme theme={theme} toggleTheme={themeToggler}/>
-                    {/*<button onClick={themeToggler}}>Cambiar tema</button>*/}
-                    <div className="container-fluid justify-content-center my-4 u-font-size-16">
-                        <Menu/>
+                <FavoriteAmiiboContext.Provider value={[favoriteAmiibo, setFavoriteAmiibo]}>
+                    <AmiibosContext.Provider value={[amiibos, setAmiibos]}>
 
-                        {/*<ButtonStyles>azdsassd</ButtonStyles>*/}
-                        <AmiibosContext.Provider value={[amiibos, setAmiibos]}>
-                            <Switch>
-                                <Route path="/amiibos/:tail">
-                                    <AmiiboDetailPage/>
-                                </Route>
-                                <Route path="/amiibos">
-                                    <AmiibosPage/>
-                                </Route>
-                                <Route path="/gameseries">
-                                    <GameSeriesPage/>
-                                </Route>
-                                <Route path="/contact">
-                                    <ContactPage/>
-                                </Route>
-                                <Route path="/">
-                                    <HomePage/>
-                                </Route>
-                            </Switch>
-                        </AmiibosContext.Provider>
-                    </div>
-                </ThemeProvider>
+                        <ThemeProvider theme={themeMode}>
+                            <GlobalStyles/>
+                            <ToggleTheme theme={theme} toggleTheme={themeToggler}/>
+                            {/*<button onClick={themeToggler}}>Cambiar tema</button>*/}
+                            <div className="container-fluid justify-content-center my-4 u-font-size-16">
+                                <Menu/>
+
+                                {/*<ButtonStyles>azdsassd</ButtonStyles>*/}
+                                <Switch>
+                                    <Route path="/amiibos/:tail">
+                                        <AmiiboDetailPage/>
+                                    </Route>
+                                    <Route path="/amiibos">
+                                        <AmiibosPage/>
+                                    </Route>
+                                    <Route path="/gameseries">
+                                        <GameSeriesPage/>
+                                    </Route>
+                                    <Route path="/contact">
+                                        <ContactPage/>
+                                    </Route>
+                                    <Route path="/profile">
+                                        <ProfilePage/>
+                                    </Route>
+                                    <Route path="/">
+                                        <HomePage/>
+                                    </Route>
+                                </Switch>
+                            </div>
+                        </ThemeProvider>
+                    </AmiibosContext.Provider>
+                </FavoriteAmiiboContext.Provider>
             </LanguageContext.Provider>
         </Router>
 

@@ -1,3 +1,3 @@
 import React from 'react';
 
-export const LanguageContext = React.createContext('es');
+export const LanguageContext = React.createContext('en');
