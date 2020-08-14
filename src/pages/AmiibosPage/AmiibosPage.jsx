@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from "axios";
 import { AmiibosContext } from "../../shared/contexts/AmiibosContext";
 import { AmiiboSearch } from "./components/AmiiboSearch/AmiiboSearch";
-import { ButtonStyles } from "../../shared/styles/Button.styles";
+import { ButtonStyles } from "../../shared/styles/ButtonStyles";
 import { AmiiboGallery } from "./components/AmiiboGallery/AmiiboGallery";
 
 export function AmiibosPage () {

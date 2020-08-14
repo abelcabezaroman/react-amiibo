@@ -7,7 +7,7 @@ import { AmiibosContext } from "./shared/contexts/AmiibosContext";
 import { LanguageContext } from "./shared/contexts/LanguageContext";
 import { FavoriteAmiiboContext } from "./shared/contexts/FavoriteAmiiboContext";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./shared/styles/globalStyles";
+import { GlobalStyles } from "./shared/styles/GlobalStyles";
 import { darkTheme, lightTheme } from "./shared/styles/themes";
 import ToggleTheme from "./shared/components/ToogleTheme/ToogleTheme";
 import { useDarkMode } from "./shared/hooks/useDarkMode";
@@ -16,6 +16,7 @@ import { ContactPage } from "./pages/ContactPage/ContactPage";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { AmiiboDetailPage } from "./pages/AmiibosPage/pages/AmiiboDetailPage/AmiiboDetailPage";
 import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
+import { ButtonStyles } from "./shared/styles/ButtonStyles";
 
 function App () {
     const [amiibos, setAmiibos] = useState([]);
@@ -45,12 +46,21 @@ function App () {
                 <FavoriteAmiiboContext.Provider value={[favoriteAmiibo, setFavoriteAmiibo]}>
                     <AmiibosContext.Provider value={[amiibos, setAmiibos]}>
 
+
                         <ThemeProvider theme={themeMode}>
                             <GlobalStyles/>
+
                             <ToggleTheme theme={theme} toggleTheme={themeToggler}/>
                             {/*<button onClick={themeToggler}}>Cambiar tema</button>*/}
                             <div className="container-fluid justify-content-center my-4 u-font-size-16">
                                 <Menu/>
+
+                                <ThemeProvider theme={{
+                                    text: 'red',
+                                    backgroundOpacity: 'rgba(255,255,255,0.1)'
+                                }}>
+                                    <ButtonStyles>HOLA</ButtonStyles>
+                                </ThemeProvider>
 
                                 {/*<ButtonStyles>azdsassd</ButtonStyles>*/}
                                 <Switch>
@@ -58,6 +68,7 @@ function App () {
                                         <AmiiboDetailPage/>
                                     </Route>
                                     <Route path="/amiibos">
+
                                         <AmiibosPage/>
                                     </Route>
                                     <Route path="/gameseries">
