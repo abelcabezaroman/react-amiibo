@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { TextList } from "../../shared/components/TextList/TextList";
+import { TextList } from "./components/TextList/TextList";
 
 export function GameSeriesPage () {
 
@@ -12,6 +12,7 @@ export function GameSeriesPage () {
             setGameSeries(filteredAmiibos);
         })
     }, [])
+
 
     return (
         <div>

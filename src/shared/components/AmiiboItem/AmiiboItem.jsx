@@ -2,7 +2,6 @@ import React from 'react';
 import './AmiiboItem.scss'
 import styled from "styled-components";
 
-
 export function AmiiboItem (props) {
 
     const Figcaption = styled.figcaption`

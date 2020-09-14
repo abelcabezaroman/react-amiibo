@@ -24,8 +24,9 @@
 
   &__img {
     transition: transform .5s ease-in-out;
-
-    max-height: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
   }
 
   &__caption {

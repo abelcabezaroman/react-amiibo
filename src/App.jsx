@@ -42,6 +42,7 @@ function App () {
 
     return (
         <Router>
+
             <LanguageContext.Provider value={'es'}>
                 <FavoriteAmiiboContext.Provider value={[favoriteAmiibo, setFavoriteAmiibo]}>
                     <AmiibosContext.Provider value={[amiibos, setAmiibos]}>
