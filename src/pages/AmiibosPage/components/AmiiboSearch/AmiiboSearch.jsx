@@ -5,12 +5,10 @@ import { useForm } from "react-hook-form";
 
 export function AmiiboSearch (props) {
 
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit } = useForm();
 
 
-    const onSubmit = (data, $event) => {
-        console.log('##ABEL## >> AmiiboSearch >>  onSubmit', data);
-        console.log('##ABEL## >> AmiiboSearch >>  onSubmit', $event);
+    const onSubmit = (data) => {
         props.fnSubmit(data)
     };
 

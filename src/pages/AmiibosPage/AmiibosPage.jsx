@@ -1,33 +1,39 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { AmiibosContext } from "../../shared/contexts/AmiibosContext";
 import { AmiiboSearch } from "./components/AmiiboSearch/AmiiboSearch";
 import { ButtonStyles } from "../../shared/styles/ButtonStyles";
 import { AmiiboGallery } from "./components/AmiiboGallery/AmiiboGallery";
 
+let allAmiibos = [];
+
 export function AmiibosPage () {
-
-    // const [amiibos, setAmiibos] = useState([]);
-
-    const [amiibos, setAmiibos] = useContext(AmiibosContext);
+    // const [amiibos, setAmiibos] = useContext(AmiibosContext);
     const [filteredAmiibos, setFilteredAmiibos] = useState([]);
-
+    console.log('total',allAmiibos);
+    console.log('filtered',filteredAmiibos);
 
     useEffect(() => {
-        if (!amiibos.length) {
-            axios.get(process.env.REACT_APP_BACK_URL + 'amiibo/').then(res => {
+        // if (!amiibos.length) {
+            axios.get(process.env.REACT_APP_BACK_URL + 'amiibo').then(res => {
                 const amiibosLocal = res.data.amiibo;
-                setAmiibos(amiibosLocal);
+                allAmiibos = amiibosLocal;
                 setFilteredAmiibos(amiibosLocal)
             })
-        } else {
-            setFilteredAmiibos(amiibos)
-        }
+        // } else {
+        //     setFilteredAmiibos(amiibos)
+        // }
     }, [])
 
     const filterAmiibos = (filterValues) => {
         const filteredLocalAmiibos = [];
-        for (const amiibo of amiibos) {
+
+        // for(const amiibo of allAmiibos) {
+        //     if(amiibo.name.includes(filterValues.name) ){
+        //         filteredLocalAmiibos.push(amiibo);
+        //     }
+        // }
+
+        for (const amiibo of allAmiibos) {
             let amiiboIsOk = true;
             for (const key in filterValues) {
                 if (filterValues.hasOwnProperty(key)) {
@@ -43,6 +49,7 @@ export function AmiibosPage () {
                 filteredLocalAmiibos.push(amiibo);
             }
         }
+
         setFilteredAmiibos(filteredLocalAmiibos);
     }
 
