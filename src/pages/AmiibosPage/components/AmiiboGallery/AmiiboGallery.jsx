@@ -56,7 +56,8 @@ export function AmiiboGallery (props) {
                         <div className="c-amiibo-gallery__item-container">
                             {/*<img src="heart-1.png" alt=""/>*/}
                             <figure className="c-amiibo-gallery__item">
-                            <img className="c-amiibo-gallery__love-it" onClick={() => {setFavoriteAmiibo(item)}} src="heart-1.png" alt=""/>
+                                <img className="c-amiibo-gallery__love-it" onClick={() => {setFavoriteAmiibo(item)}}
+                                     src="heart-1.png" alt=""/>
 
                                 <Link to={'amiibos/' + item.tail}>
                                     <img src={item.image} alt="" className="c-amiibo-gallery__img"/>
