@@ -35,33 +35,29 @@ function App () {
 
     /* Theme
        ****************************************************************************/
-    const [theme, themeToggler] = useDarkMode();
-
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
-
+    // const [theme, themeToggler] = useDarkMode();
+    const [theme, setTheme] = useState(darkTheme);
 
     return (
         <Router>
-
             <LanguageContext.Provider value={'es'}>
                 <FavoriteAmiiboContext.Provider value={[favoriteAmiibo, setFavoriteAmiibo]}>
                     <AmiibosContext.Provider value={[amiibos, setAmiibos]}>
 
-
-                        <ThemeProvider theme={themeMode}>
+                        <ThemeProvider theme={theme}>
                             <GlobalStyles/>
 
-                            <ToggleTheme theme={theme} toggleTheme={themeToggler}/>
+                            <ToggleTheme theme={theme} setTheme={setTheme}/>
                             {/*<button onClick={themeToggler}}>Cambiar tema</button>*/}
                             <div className="container-fluid justify-content-center my-4 u-font-size-16">
                                 <Menu/>
 
-                                <ThemeProvider theme={{
-                                    text: 'red',
-                                    backgroundOpacity: 'rgba(255,255,255,0.1)'
-                                }}>
-                                    <ButtonStyles>HOLA</ButtonStyles>
-                                </ThemeProvider>
+                                {/*<ThemeProvider theme={{*/}
+                                {/*    text: 'red',*/}
+                                {/*    backgroundOpacity: 'rgba(255,255,255,0.1)'*/}
+                                {/*}}>*/}
+                                {/*    <ButtonStyles>HOLA</ButtonStyles>*/}
+                                {/*</ThemeProvider>*/}
 
                                 {/*<ButtonStyles>azdsassd</ButtonStyles>*/}
                                 <Switch>

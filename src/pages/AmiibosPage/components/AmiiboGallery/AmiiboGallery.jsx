@@ -59,7 +59,7 @@ export function AmiiboGallery (props) {
                                 <img className="c-amiibo-gallery__love-it" onClick={() => {setFavoriteAmiibo(item)}}
                                      src="heart-1.png" alt=""/>
 
-                                <Link to={'amiibos/' + item.tail}>
+                                <Link to={'amiibos/' + item.id}>
                                     <img src={item.image} alt="" className="c-amiibo-gallery__img"/>
                                     <FigcaptionLocalStyles
                                         className="c-amiibo-gallery__caption">{item.name}</FigcaptionLocalStyles>
@@ -75,4 +75,5 @@ export function AmiiboGallery (props) {
 
 AmiiboGallery.propTypes = {
     amiibos: [].isRequired,
+    amiibos2: [],
 }

@@ -5,4 +5,7 @@
   cursor: pointer;
   border: 2px solid $color-white;
   color: $color-white;
+  &--big{
+    padding: 4rem;
+  }
 }

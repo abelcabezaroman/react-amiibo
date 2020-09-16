@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeadingStyles = styled.h1`
+export const HeadingPropsStyles = styled.h1`
     color:  ${props => props.secondary ? 'red' : '#FFFFFF'};
     font-size: 8rem;
     

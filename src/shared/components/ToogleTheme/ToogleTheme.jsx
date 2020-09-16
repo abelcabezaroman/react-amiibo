@@ -1,6 +1,7 @@
 import React from 'react'
 import { func, string } from 'prop-types';
 import styled from "styled-components"
+import { darkTheme, lightTheme } from "../../styles/themes";
 
 const Button = styled.button`
   background: ${({ theme }) => theme.background};
@@ -12,10 +13,19 @@ const Button = styled.button`
   padding: 0.6rem;
   }`;
 
-const ToggleTheme = ({theme,  toggleTheme }) => {
+const ToggleTheme = ({ theme, setTheme }) => {
+
+    const changeTheme = () => {
+        if (theme === lightTheme) {
+            setTheme(darkTheme)
+        } else {
+            setTheme(lightTheme)
+        }
+    }
+
     return (
-        <Button onClick={toggleTheme} >
-          Switch Theme
+        <Button onClick={changeTheme}>
+            Switch Theme
         </Button>
     );
 };
