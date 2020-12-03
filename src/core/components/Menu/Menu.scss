@@ -1,0 +1,22 @@
+.c-menu {
+    display: flex;
+    justify-content: center;
+    margin: 24px;
+    flex-wrap: wrap;
+  
+    &__link {
+      font-size: 24px;
+      font-family: Arial;
+      text-transform: none;
+      margin: 24px;
+      padding: 24px;
+      background-color: #282c34;
+      min-width: 24rem;
+      text-align: center;
+      color: #FFFFFF;
+      &--active{
+          background-color: white;
+          color: #282c34;
+      }
+    }
+  }

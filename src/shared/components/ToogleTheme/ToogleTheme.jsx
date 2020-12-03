@@ -30,9 +30,9 @@ const ToggleTheme = ({ theme, setTheme }) => {
     );
 };
 
-ToggleTheme.propTypes = {
-    theme: string.isRequired,
-    toggleTheme: func.isRequired,
-}
+// ToggleTheme.propTypes = {
+//     theme: string.isRequired,
+//     toggleTheme: func.isRequired,
+// }
 
 export default ToggleTheme;
