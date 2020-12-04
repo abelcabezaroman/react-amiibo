@@ -7,8 +7,10 @@ import Routes from './core/components/Routes/Routes';
 function App() {
     return (
         <Router>
-            <Menu></Menu>
-            <Routes></Routes>
+            <div className="container">
+                <Menu></Menu>
+                <Routes></Routes>
+            </div>
         </Router>
     );
 }

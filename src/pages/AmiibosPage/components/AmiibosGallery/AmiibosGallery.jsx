@@ -6,7 +6,7 @@ export default function AmiibosGallery(props) {
     return (
         <div className="c-amiibos-gallery">
             <div className="row">
-                {props.amiibos.map((amiibo, index) => <div className="col-4">
+                {props.amiibos.map((amiibo, index) => <div className="col-12 col-md-6 col-lg-4 col-xl-3">
                     <figure className="c-amiibos-gallery__figure" key={index}>
                         <img className="c-amiibos-gallery__img" src={amiibo.image} alt={amiibo.name} />
                         <figcaption>{amiibo.name}</figcaption>
