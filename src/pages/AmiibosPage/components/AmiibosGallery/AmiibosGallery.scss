@@ -1,0 +1,13 @@
+.c-amiibos-gallery{
+    &__figure{
+        height: 30rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 4rem;    }
+    &__img{
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
