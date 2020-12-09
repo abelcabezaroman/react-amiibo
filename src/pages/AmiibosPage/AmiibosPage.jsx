@@ -14,7 +14,7 @@ export function AmiibosPage () {
 
     useEffect(() => {
         // if (!amiibos.length) {
-            axios.get(process.env.REACT_APP_BACK_URL + 'amiibo').then(res => {
+            axios.get(process.env.REACT_APP_BACK_URL + 'amiibo/').then(res => {
                 const amiibosLocal = res.data.amiibo;
                 allAmiibos = amiibosLocal;
                 setFilteredAmiibos(amiibosLocal)
