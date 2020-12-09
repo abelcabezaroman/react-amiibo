@@ -10,6 +10,7 @@ export default function Menu() {
                 <NavLink exact className="c-menu__link" activeClassName="c-menu__link--active" to="/">Home</NavLink>
                 <NavLink className="c-menu__link" activeClassName="c-menu__link--active" to="/amiibos">Amiibos</NavLink>
                 <NavLink className="c-menu__link" activeClassName="c-menu__link--active" to="/gameseries">Game Series</NavLink>
+                <NavLink className="c-menu__link" activeClassName="c-menu__link--active" to="/contact">Contact</NavLink>
             </nav>
         </div>
 
