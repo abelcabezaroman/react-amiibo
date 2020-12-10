@@ -1,19 +1,8 @@
 import React from 'react'
-import { func, string } from 'prop-types';
-import styled from "styled-components"
+import { ButtonStyles } from '../../styles/ButtonStyles';
 import { darkTheme, lightTheme } from "../../styles/themes";
 
-const Button = styled.button`
-  background: ${({ theme }) => theme.background};
-  border: 2px solid ${({ theme }) => theme.toggleBorder};
-  color: white;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size:0.8rem;
-  padding: 0.6rem;
-  }`;
-
-const ToggleTheme = ({ theme, setTheme }) => {
+export default function ToggleTheme({ theme, setTheme }){
 
     const changeTheme = () => {
         if (theme === lightTheme) {
@@ -24,15 +13,8 @@ const ToggleTheme = ({ theme, setTheme }) => {
     }
 
     return (
-        <Button onClick={changeTheme}>
+        <ButtonStyles onClick={changeTheme}>
             Switch Theme
-        </Button>
+        </ButtonStyles>
     );
-};
-
-// ToggleTheme.propTypes = {
-//     theme: string.isRequired,
-//     toggleTheme: func.isRequired,
-// }
-
-export default ToggleTheme;
+}
