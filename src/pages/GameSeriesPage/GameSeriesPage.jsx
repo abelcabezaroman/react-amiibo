@@ -1,15 +1,19 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import LoadingContext from '../../shared/contexts/LoadingContext';
 import { TextList } from './components/TextList/TextList';
 
 
 export default function GameSeriesPage() {
     const [gameSeries, setGameSeries] = useState([]);
+    const {setIsLoading} = useContext(LoadingContext);
 
     useEffect(() => {
+        setIsLoading(true);
         axios.get('https://www.amiiboapi.com/api/gameseries/').then(res => {
             const filteredAmiibos = uniqueArray(res.data.amiibo, 'name');
             setGameSeries(filteredAmiibos);
+            setIsLoading(false);
         });
     }, [])
 
