@@ -8,6 +8,7 @@ export default function Menu() {
     const LinkToStyles = styled.span`
     background-color: ${({ theme }) => theme.backgroundOpacity};
     display: inherit;
+    margin: 24px;
     }`;
 
     return (
